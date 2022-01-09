@@ -30,13 +30,11 @@ public class Item : MonoBehaviour
                 extensions = m_textureExtensions[i];
             }
         }
-
         m_image.sprite = sprite;
         m_textName.text = m_image.sprite.name;
         
         m_createTimeOfFile = File.GetCreationTime(Application.dataPath + FOLDER_PATH + m_image.sprite.name + "." + extensions);
 
         m_timeSinceCreate.text += (DateTime.Now - m_createTimeOfFile).ToString();
-
     }
 }
