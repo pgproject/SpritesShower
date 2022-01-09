@@ -18,6 +18,8 @@ public class Item : MonoBehaviour
 
     private DateTime m_createTimeOfFile;
 
+    public string NameItem => m_textName.text;
+
     public void SetItemPriporties(Sprite sprite)
     {
         m_image.sprite = sprite;
