@@ -16,13 +16,12 @@ public class Item : MonoBehaviour
     [SerializeField] private Image m_image;
     [SerializeField] private Text m_timeSinceCreate;
 
-    private Sprite m_imageSprite;
     private DateTime m_createTimeOfFile;
 
     public void SetItemPriporties(Sprite sprite)
     {
         m_image.sprite = sprite;
-        m_textName.text = m_image.name;
+        m_textName.text = m_image.sprite.name;
 
         m_createTimeOfFile = File.GetCreationTime(Application.dataPath + FOLDER_PATH + m_image.sprite.name + "." + m_fileExtension.ToString());
 
