@@ -205,6 +205,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f7597af4e9f394d9a1f2295ed87015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_textureExtensions:
+  - TGA
+  - PNG
+  - PSD
+  - JPG
   m_fileExtension: 0
   m_textName: {fileID: 2266519729653722171}
   m_image: {fileID: 2266519729658562888}
