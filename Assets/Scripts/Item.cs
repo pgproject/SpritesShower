@@ -9,17 +9,16 @@ using Application = UnityEngine.Application;
 
 public class Item : MonoBehaviour
 {
+    private const string TIME_CREATION = "Time since create: ";
     private const string FOLDER_PATH = "/Resources/";
     [SerializeField] private string[] m_textureExtensions;
-
     [SerializeField] private Text m_textName;
     [SerializeField] private Image m_image;
     [SerializeField] private Text m_timeSinceCreate;
 
+    private string m_fullPath;
     private DateTime m_createTimeOfFile;
-
     public string NameItem => m_textName.text;
-
     public void SetItemPriporties(Sprite sprite)
     {
         string extensions = null;
@@ -32,9 +31,14 @@ public class Item : MonoBehaviour
         }
         m_image.sprite = sprite;
         m_textName.text = m_image.sprite.name;
-        
-        m_createTimeOfFile = File.GetCreationTime(Application.dataPath + FOLDER_PATH + m_image.sprite.name + "." + extensions);
+        m_fullPath = Application.dataPath + FOLDER_PATH + m_image.sprite.name + "." + extensions;
+        m_createTimeOfFile = File.GetCreationTime(m_fullPath);
 
-        m_timeSinceCreate.text += (DateTime.Now - m_createTimeOfFile).ToString();
+        m_timeSinceCreate.text =TIME_CREATION + (DateTime.Now - m_createTimeOfFile).ToString();
+    }
+
+    public void RefreshDateTime()
+    {
+        m_timeSinceCreate.text =TIME_CREATION + (DateTime.Now - m_createTimeOfFile).ToString();
     }
 }
